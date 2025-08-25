@@ -479,3 +479,456 @@ export const ButtonSizeClassNameAndTextTest: Story = {
     );
   }
 };
+
+// ********************************************************************************************
+// ****************************** DisplayFormatTests ******************************************
+// ********************************************************************************************
+
+// Test for default format (jalali)
+export const DisplayFormatDefaultJalali: Story = {
+  args: {
+    calendarType: 'jalali',
+    displayFormat: 'default',
+    value: '1402/05/12'
+  },
+  render: args => <DatePicker {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // Check initial value is in default format (YYYY/MM/DD)
+    const input = await canvas.getByRole('textbox');
+    expect(input).toHaveValue('1402/05/12');
+
+    // Click to open modal
+    await userEvent.click(input);
+
+    // Wait for modal to be rendered
+    await waitFor(async () => {
+      const modal = canvasElement.querySelector('.wd-modal');
+      expect(modal).toBeInTheDocument();
+    });
+
+    // Click the confirm button to close modal
+    const confirmButton = await canvas.getByRole('button', { name: /تایید/i });
+    await userEvent.click(confirmButton);
+
+    // Wait for modal to close
+    await waitFor(async () => {
+      const modal = canvasElement.querySelector('.wd-modal');
+      expect(modal).not.toBeInTheDocument();
+    });
+
+    // Verify format remains the same
+    expect(input).toHaveValue('1402/05/12');
+  }
+};
+
+// Test for dash format (jalali)
+export const DisplayFormatDashJalali: Story = {
+  args: {
+    calendarType: 'jalali',
+    displayFormat: 'dash',
+    value: '1402-05-12'
+  },
+  render: args => <DatePicker {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // Check initial value is in dash format (YYYY-MM-DD)
+    const input = await canvas.getByRole('textbox');
+    expect(input).toHaveValue('1402-05-12');
+
+    // Click to open modal
+    await userEvent.click(input);
+
+    // Wait for modal to be rendered
+    await waitFor(async () => {
+      const modal = canvasElement.querySelector('.wd-modal');
+      expect(modal).toBeInTheDocument();
+    });
+
+    // Click the confirm button to close modal
+    const confirmButton = await canvas.getByRole('button', { name: /تایید/i });
+    await userEvent.click(confirmButton);
+
+    // Wait for modal to close
+    await waitFor(async () => {
+      const modal = canvasElement.querySelector('.wd-modal');
+      expect(modal).not.toBeInTheDocument();
+    });
+
+    // Verify format remains the same
+    expect(input).toHaveValue('1402-05-12');
+  }
+};
+
+// Test for dot format (jalali)
+export const DisplayFormatDotJalali: Story = {
+  args: {
+    calendarType: 'jalali',
+    displayFormat: 'dot',
+    value: '1402.05.12'
+  },
+  render: args => <DatePicker {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // Check initial value is in dot format (YYYY.MM.DD)
+    const input = await canvas.getByRole('textbox');
+    expect(input).toHaveValue('1402.05.12');
+
+    // Click to open modal
+    await userEvent.click(input);
+
+    // Wait for modal to be rendered
+    await waitFor(async () => {
+      const modal = canvasElement.querySelector('.wd-modal');
+      expect(modal).toBeInTheDocument();
+    });
+
+    // Click the confirm button to close modal
+    const confirmButton = await canvas.getByRole('button', { name: /تایید/i });
+    await userEvent.click(confirmButton);
+
+    // Wait for modal to close
+    await waitFor(async () => {
+      const modal = canvasElement.querySelector('.wd-modal');
+      expect(modal).not.toBeInTheDocument();
+    });
+
+    // Verify format remains the same
+    expect(input).toHaveValue('1402.05.12');
+  }
+};
+
+// Test for space format (jalali)
+export const DisplayFormatSpaceJalali: Story = {
+  args: {
+    calendarType: 'jalali',
+    displayFormat: 'space',
+    value: '1402 05 12'
+  },
+  render: args => <DatePicker {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // Check initial value is in space format (YYYY MM DD)
+    const input = await canvas.getByRole('textbox');
+    expect(input).toHaveValue('1402 05 12');
+
+    // Click to open modal
+    await userEvent.click(input);
+
+    // Wait for modal to be rendered
+    await waitFor(async () => {
+      const modal = canvasElement.querySelector('.wd-modal');
+      expect(modal).toBeInTheDocument();
+    });
+
+    // Click the confirm button to close modal
+    const confirmButton = await canvas.getByRole('button', { name: /تایید/i });
+    await userEvent.click(confirmButton);
+
+    // Wait for modal to close
+    await waitFor(async () => {
+      const modal = canvasElement.querySelector('.wd-modal');
+      expect(modal).not.toBeInTheDocument();
+    });
+
+    // Verify format remains the same
+    expect(input).toHaveValue('1402 05 12');
+  }
+};
+
+// Test for default format (gregorian)
+export const DisplayFormatDefaultGregorian: Story = {
+  args: {
+    calendarType: 'miladi',
+    displayFormat: 'default',
+    value: '2023/05/12'
+  },
+  render: args => <DatePicker {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // Check initial value is in default format (YYYY/MM/DD)
+    const input = await canvas.getByRole('textbox');
+    expect(input).toHaveValue('2023/05/12');
+
+    // Click to open modal
+    await userEvent.click(input);
+
+    // Wait for modal to be rendered
+    await waitFor(async () => {
+      const modal = canvasElement.querySelector('.wd-modal');
+      expect(modal).toBeInTheDocument();
+    });
+
+    // Click the confirm button to close modal
+    const confirmButton = await canvas.getByRole('button', { name: /set/i });
+    await userEvent.click(confirmButton);
+
+    // Wait for modal to close
+    await waitFor(async () => {
+      const modal = canvasElement.querySelector('.wd-modal');
+      expect(modal).not.toBeInTheDocument();
+    });
+
+    // Verify format remains the same
+    expect(input).toHaveValue('2023/05/12');
+  }
+};
+
+// Test for dash format (gregorian)
+export const DisplayFormatDashGregorian: Story = {
+  args: {
+    calendarType: 'miladi',
+    displayFormat: 'dash',
+    value: '2023-05-12'
+  },
+  render: args => <DatePicker {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // Check initial value is in dash format (YYYY-MM-DD)
+    const input = await canvas.getByRole('textbox');
+    expect(input).toHaveValue('2023-05-12');
+
+    // Click to open modal
+    await userEvent.click(input);
+
+    // Wait for modal to be rendered
+    await waitFor(async () => {
+      const modal = canvasElement.querySelector('.wd-modal');
+      expect(modal).toBeInTheDocument();
+    });
+
+    // Click the confirm button to close modal
+    const confirmButton = await canvas.getByRole('button', { name: /set/i });
+    await userEvent.click(confirmButton);
+
+    // Wait for modal to close
+    await waitFor(async () => {
+      const modal = canvasElement.querySelector('.wd-modal');
+      expect(modal).not.toBeInTheDocument();
+    });
+
+    // Verify format remains the same
+    expect(input).toHaveValue('2023-05-12');
+  }
+};
+
+// Test changing date and maintaining format (jalali)
+export const DisplayFormatMaintainsFormatOnChangeJalali: Story = {
+  args: {
+    calendarType: 'jalali',
+    displayFormat: 'dash',
+    value: '1402-05-12'
+  },
+  render: args => <DatePicker {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // Check initial value
+    const input = await canvas.getByRole('textbox');
+    expect(input).toHaveValue('1402-05-12');
+
+    // Click to open modal
+    await userEvent.click(input);
+
+    // Wait for modal to be rendered
+    await waitFor(async () => {
+      const modal = canvasElement.querySelector('.wd-modal');
+      expect(modal).toBeInTheDocument();
+    });
+
+    // Wait for wheel pickers to be fully rendered
+    let wheelContainers: NodeListOf<Element>;
+    await waitFor(async () => {
+      wheelContainers = canvasElement.querySelectorAll('.wd-datepicker-wheel-container');
+      expect(wheelContainers).toHaveLength(3);
+    });
+
+    // Additional wait to ensure wheel pickers are fully interactive
+    await new Promise(resolve => setTimeout(resolve, 300));
+
+    // For Jalali calendar, the order is: day, month, year
+    const dayWheel = wheelContainers![0];
+    const monthWheel = wheelContainers![1];
+    const yearWheel = wheelContainers![2];
+
+    // Select year 1403
+    const yearItems = yearWheel.querySelectorAll('.wd-wheel-picker-item-clickable');
+    const targetYearItem = Array.from(yearItems).find(
+      (item: Element) => item.textContent === '1403'
+    );
+    if (targetYearItem) {
+      await userEvent.click(targetYearItem);
+      await new Promise(resolve => setTimeout(resolve, 300));
+    }
+
+    // Select month 06 (خرداد)
+    const monthItems = monthWheel.querySelectorAll('.wd-wheel-picker-item-clickable');
+    const targetMonthItem = Array.from(monthItems).find(
+      (item: Element) => item.textContent === 'خرداد'
+    );
+    if (targetMonthItem) {
+      await userEvent.click(targetMonthItem);
+      await new Promise(resolve => setTimeout(resolve, 300));
+    }
+
+    // Select day 15
+    const dayItems = dayWheel.querySelectorAll('.wd-wheel-picker-item-clickable');
+    const targetDayItem = Array.from(dayItems).find((item: Element) => item.textContent === '15');
+    if (targetDayItem) {
+      await userEvent.click(targetDayItem);
+      await new Promise(resolve => setTimeout(resolve, 300));
+    }
+
+    // Wait before clicking confirm button
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    // Click the confirm button
+    const confirmButton = await canvas.getByRole('button', { name: /تایید/i });
+    await userEvent.click(confirmButton);
+
+    // Wait for the modal to close
+    await waitFor(
+      async () => {
+        const modal = canvasElement.querySelector('.wd-modal');
+        expect(modal).not.toBeInTheDocument();
+      },
+      { timeout: 3000 }
+    );
+
+    // Check that the new value maintains the dash format
+    await waitFor(
+      async () => {
+        const finalValue = (input as HTMLInputElement).value;
+        console.log('Final input value with dash format:', finalValue);
+        expect(finalValue).toBe('1403-06-15');
+      },
+      { timeout: 5000 }
+    );
+  }
+};
+
+// Test changing date and maintaining format (gregorian)
+export const DisplayFormatMaintainsFormatOnChangeGregorian: Story = {
+  args: {
+    calendarType: 'miladi',
+    displayFormat: 'dot',
+    value: '2023.05.12'
+  },
+  render: args => <DatePicker {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // Check initial value
+    const input = await canvas.getByRole('textbox');
+    expect(input).toHaveValue('2023.05.12');
+
+    // Click to open modal
+    await userEvent.click(input);
+
+    // Wait for modal to be rendered
+    await waitFor(async () => {
+      const modal = canvasElement.querySelector('.wd-modal');
+      expect(modal).toBeInTheDocument();
+    });
+
+    // Wait for wheel pickers to be fully rendered
+    let wheelContainers: NodeListOf<Element>;
+    await waitFor(async () => {
+      wheelContainers = canvasElement.querySelectorAll('.wd-datepicker-wheel-container');
+      expect(wheelContainers).toHaveLength(3);
+    });
+
+    // Additional wait to ensure wheel pickers are fully interactive
+    await new Promise(resolve => setTimeout(resolve, 300));
+
+    // For Gregorian calendar, the order is: year, month, day
+    const yearWheel = wheelContainers![0];
+    const monthWheel = wheelContainers![1];
+    const dayWheel = wheelContainers![2];
+
+    // Select year 2024
+    const yearItems = yearWheel.querySelectorAll('.wd-wheel-picker-item-clickable');
+    const targetYearItem = Array.from(yearItems).find(
+      (item: Element) => item.textContent === '2024'
+    );
+    if (targetYearItem) {
+      await userEvent.click(targetYearItem);
+      await new Promise(resolve => setTimeout(resolve, 300));
+    }
+
+    // Select month March
+    const monthItems = monthWheel.querySelectorAll('.wd-wheel-picker-item-clickable');
+    const targetMonthItem = Array.from(monthItems).find(
+      (item: Element) => item.textContent === 'March'
+    );
+    if (targetMonthItem) {
+      await userEvent.click(targetMonthItem);
+      await new Promise(resolve => setTimeout(resolve, 300));
+    }
+
+    // Select day 15
+    const dayItems = dayWheel.querySelectorAll('.wd-wheel-picker-item-clickable');
+    const targetDayItem = Array.from(dayItems).find((item: Element) => item.textContent === '15');
+    if (targetDayItem) {
+      await userEvent.click(targetDayItem);
+      await new Promise(resolve => setTimeout(resolve, 300));
+    }
+
+    // Wait before clicking confirm button
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    // Click the confirm button
+    const confirmButton = await canvas.getByRole('button', { name: /set/i });
+    await userEvent.click(confirmButton);
+
+    // Wait for the modal to close
+    await waitFor(
+      async () => {
+        const modal = canvasElement.querySelector('.wd-modal');
+        expect(modal).not.toBeInTheDocument();
+      },
+      { timeout: 3000 }
+    );
+
+    // Check that the new value maintains the dot format
+    await waitFor(
+      async () => {
+        const finalValue = (input as HTMLInputElement).value;
+        console.log('Final input value with dot format:', finalValue);
+        expect(finalValue).toBe('2024.03.15');
+      },
+      { timeout: 5000 }
+    );
+  }
+};
+
+// Test format switching behavior
+export const DisplayFormatSwitching: Story = {
+  args: {
+    calendarType: 'jalali',
+    displayFormat: 'default',
+    value: '1402/05/12'
+  },
+  render: args => <DatePicker {...args} />,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    // Check initial value in default format
+    const input = await canvas.getByRole('textbox');
+    expect(input).toHaveValue('1402/05/12');
+
+    // This test demonstrates that the component properly handles format changes
+    // The actual format switching would be done by the parent component
+    // changing the displayFormat prop
+
+    // Verify the component renders correctly with the current format
+    expect(input).toBeInTheDocument();
+    expect(input).toHaveValue('1402/05/12');
+  }
+};

@@ -40,6 +40,7 @@ and **Gregorian (Mialdi)** calendars, with full **RTL support**.
 - 🔧 Customizable **year range**
 - 🎨 Custom input, button, and modal props for full UI control
 - 📱 **Responsive** and mobile-friendly design
+- 📅 **Flexible date display formats** with customizable separators
 
 ## Installation
 
@@ -84,24 +85,25 @@ function App() {
 
 ### datepicker props
 
-| Prop                       | Type                   | Default                   | Description                                             |
-| -------------------------- | ---------------------- | ------------------------- | ------------------------------------------------------- |
-| `value`                    | string                 | -                         | The selected date in jYYYY/jMM/jDD or YYYY/MM/DD format |
-| `onChange`                 | (date: string) => void | -                         | Callback when date changes                              |
-| `minYear`                  | number                 | jalali(1300) miladi(1500) | Minimum selectable year                                 |
-| `maxYear`                  | number                 | Current year              | Maximum selectable year                                 |
-| `calendarType`             | miladi - jalali        | jalali                    | Calendar type                                           |
-| `visibleCount`             | 1, 3, 5 , 7            | 3                         | Count of visible item in Calendar                       |
-| `itemHeight`               | number                 | 40px                      | Height of calendar item                                 |
-| `indicatorBorderColor`     | string                 | #e0e0e0                   | Indicator top and bottom border color                   |
-| `indicatorBorderWidth`     | string                 | 1px                       | Indicator top and bottom border width                   |
-| `className`                | string                 | -                         | Additional CSS class for the component                  |
-| `indicatorClassName`       | string                 | -                         | Additional CSS class for the component                  |
-| `scrollContainerClassName` | string                 | -                         | Additional CSS class for the component                  |
-| `itemClassName`            | string                 | -                         | Additional CSS class for the component                  |
-| `input`                    | `InputProps`           | -                         | Props for the input field                               |
-| `modal`                    | `ModalProps`           | -                         | Props for the modal                                     |
-| `button`                   | `ButtonProps`          | -                         | Props for the confirm button                            |
+| Prop                       | Type                                    | Default                   | Description                                             |
+| -------------------------- | --------------------------------------- | ------------------------- | ------------------------------------------------------- |
+| `value`                    | string                                  | -                         | The selected date in jYYYY/jMM/jDD or YYYY/MM/DD format |
+| `onChange`                 | (date: string) => void                  | -                         | Callback when date changes                              |
+| `minYear`                  | number                                  | jalali(1300) miladi(1500) | Minimum selectable year                                 |
+| `maxYear`                  | number                                  | Current year              | Maximum selectable year                                 |
+| `calendarType`             | miladi - jalali                         | jalali                    | Calendar type                                           |
+| `displayFormat`            | 'default' \| 'dash' \| 'dot' \| 'space' | 'default'                 | Date display format with custom separators              |
+| `visibleCount`             | 1, 3, 5 , 7                             | 3                         | Count of visible item in Calendar                       |
+| `itemHeight`               | number                                  | 40px                      | Height of calendar item                                 |
+| `indicatorBorderColor`     | string                                  | #e0e0e0                   | Indicator top and bottom border color                   |
+| `indicatorBorderWidth`     | string                                  | 1px                       | Indicator top and bottom border width                   |
+| `className`                | string                                  | -                         | Additional CSS class for the component                  |
+| `indicatorClassName`       | string                                  | -                         | Additional CSS class for the component                  |
+| `scrollContainerClassName` | string                                  | -                         | Additional CSS class for the component                  |
+| `itemClassName`            | string                                  | -                         | Additional CSS class for the component                  |
+| `input`                    | `InputProps`                            | -                         | Props for the input field                               |
+| `modal`                    | `ModalProps`                            | -                         | Props for the modal                                     |
+| `button`                   | `ButtonProps`                           | -                         | Props for the confirm button                            |
 
 ### Modal Props
 

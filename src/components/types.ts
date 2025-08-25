@@ -60,6 +60,7 @@ interface DatepickerProps
   maxYear?: number;
   className?: string;
   calendarType?: 'jalali' | 'miladi';
+  displayFormat?: 'default' | 'dash' | 'dot' | 'space';
   input?: DatepickerInputProps;
   modal?: DatepickerModalProps;
   button?: DatepickerButtonProps;

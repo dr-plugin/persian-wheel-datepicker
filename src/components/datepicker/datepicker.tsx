@@ -25,6 +25,7 @@ import {
   gregorianMonths,
   DEFAULT_MIN_YEARS,
   formatDate,
+  formatDateWithFormat,
   isValidDate,
   getDaysInMonth,
   getValidInitialDate,
@@ -43,6 +44,7 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
   input,
   modal,
   calendarType = 'jalali',
+  displayFormat = 'default',
   button,
   ...wheelPickerProps
 }) => {
@@ -68,7 +70,7 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
 
   // Always return a valid date object
   const getValidInitial = () => {
-    return getValidInitialDate(value, calendarType);
+    return getValidInitialDate(value, calendarType, displayFormat);
   };
 
   // State for the selected value (committed)
@@ -80,12 +82,12 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
   // State for the value being picked in modal (not committed until Set)
   const [temp, setTemp] = useState<JalaliDate | GregorianDate>(selected);
 
-  // Update selected and temp when value prop changes
+  // Update selected and temp when value prop or displayFormat changes
   useEffect(() => {
     const newSelected = getValidInitial();
     setSelected(newSelected);
     setTemp(newSelected);
-  }, [value]);
+  }, [value, displayFormat]);
 
   // Generate years array
   const years = useMemo(() => {
@@ -120,7 +122,7 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
     setSelected(temp);
     setModalOpen(false);
     if (isValidDate(temp, calendarType)) {
-      const dateString = formatDate(temp, calendarType);
+      const dateString = formatDateWithFormat(temp, calendarType, displayFormat);
       onChange?.(dateString);
     }
   };
@@ -132,8 +134,8 @@ const WheelDatePicker: React.FC<DatepickerProps> = ({
   // Display value for input
   const displayValue = useMemo(() => {
     if (!value) return '';
-    return formatDate(selected, calendarType);
-  }, [selected, calendarType, value]);
+    return formatDateWithFormat(selected, calendarType, displayFormat);
+  }, [selected, calendarType, displayFormat, value]);
 
   // Create wheel picker components
   const dayWheel = (

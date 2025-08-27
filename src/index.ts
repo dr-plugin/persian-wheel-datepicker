@@ -1,7 +1,4 @@
-import WheelDatePicker from './components/datepicker/datepicker';
+import Button from './components/button/button';
 
 // components
-export { WheelDatePicker }
-
-// types
-export type {DatepickerProps, DatepickerInputProps, DatepickerButtonProps, DatepickerModalProps } from './components/types';
+export { Button }

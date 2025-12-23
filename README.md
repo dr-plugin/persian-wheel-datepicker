@@ -1,11 +1,11 @@
 <br/>
 <div align="center">
 <img src="./assets/buildix.svg" alt="Buildix" />
-<h3 align="center">@buildix/wheel-datepicker</h3>
-<img alt="Npm download" src="https://img.shields.io/npm/dw/@buildix/wheel-datepicker?style=flat&color=blue">
+<h3 align="center">persian-wheel-datepicker</h3>
+<img alt="Npm download" src="https://img.shields.io/npm/dw/persian-wheel-datepicker?style=flat&color=blue">
 <img alt="Package stars" src="https://img.shields.io/github/stars/sadegh1379/wheel-datepicker?style=flat&color=yellow">
-<img alt="GitHub License" src="https://img.shields.io/npm/l/@buildix/wheel-datepicker?color=">
-<img alt="Version" src="https://img.shields.io/npm/v/@buildix/wheel-datepicker?style=flat&color=orange">
+<img alt="GitHub License" src="https://img.shields.io/npm/l/persian-wheel-datepicker?color=">
+<img alt="Version" src="https://img.shields.io/npm/v/persian-wheel-datepicker?style=flat&color=orange">
 
 <br/>
 <p align="center">
@@ -45,13 +45,13 @@ and **Gregorian (Mialdi)** calendars, with full **RTL support**.
 ## Installation
 
 ```bash
-npm install @buildix/wheel-datepicker
+npm install persian-wheel-datepicker
 ```
 
 ## Import CSS
 
 ```tsx
-import '@buildix/wheel-datepicker/dist/index.css';
+import 'persian-wheel-datepicker/dist/index.css';
 ```
 
 ## Usage
@@ -59,8 +59,8 @@ import '@buildix/wheel-datepicker/dist/index.css';
 ### Basic Usage
 
 ```tsx
-import { WheelDatePicker } from '@buildix/wheel-datepicker';
-import '@buildix/wheel-datepicker/dist/index.css';
+import { WheelDatePicker } from 'persian-wheel-datepicker';
+import 'persian-wheel-datepicker/dist/index.css';
 
 function App() {
   const [date, setDate] = useState('');
